@@ -28,22 +28,10 @@ class ShoppingCart {
   }
 
   clone(...items) {
-
-    const copyCart = items.concat(this.items);
+    const copyCart = new ShoppingCart()
+    copyCart.items = JSON.parse(JSON.stringify(this.items))
     return copyCart
-    this.items = items
-    let i, clone;
 
-       if( Array.isArray( items ) ) {
-           clone = items.slice( 0 );
-           for( i = 0; i < clone.length; i++ ) {
-               clone[ i ] = arrayClone( clone[ i ] );
-           }
-           return clone;
-       }
-       else {
-           return items;
-       }
   }
 
 
@@ -51,8 +39,8 @@ class ShoppingCart {
 
 
 //
-const cart1 = new ShoppingCart('banana', 12, 23)
-const cart2 = cart1.clone()
+// const cart1 = new ShoppingCart('banana', 12, 23)
+// const cart2 = cart1.clone()
 // //
 // console.log(cart2)
 // //
